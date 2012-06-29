@@ -51,12 +51,6 @@ object DatabaseAdapter
                 schema_name_opt: Option[String]): DatabaseAdapter =
   {
     vendor match {
-      case Derby =>
-        new DerbyDatabaseAdapter(schema_name_opt)
-
-      case Oracle =>
-        new OracleDatabaseAdapter(schema_name_opt)
-
       case Postgresql =>
         new PostgresqlDatabaseAdapter(schema_name_opt)
 

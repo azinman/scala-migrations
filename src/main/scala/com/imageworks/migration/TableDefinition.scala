@@ -261,4 +261,21 @@ class TableDefinition(adapter: DatabaseAdapter,
   {
     column(name, VarcharType, options: _*)
   }
+
+  /**
+   * Add a UUID column type to the table.  The actual SQL text used
+   * to create the column is chosen by the database adapter and may be
+   * different than the name of the column_type argument.
+   *
+   * @param name the column's name
+   * @param a possibly empty array of column options to customize the
+   *        column
+   * @return the same instance
+   */
+  final
+  def uuid(name: String,
+           ptions: ColumnOption*): TableDefinition =
+  {
+    column(name, UUIDType, options: _*)
+  }
 }

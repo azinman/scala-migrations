@@ -39,6 +39,31 @@ class PostgresqlByteaColumnDefinition
   val sql = "BYTEA"
 }
 
+class PostgresqlVarcharColumnDefinition
+  extends ColumnDefinition
+{
+  override
+  val sql = "TEXT"
+}
+
+
+class PostgresqlUUIDColumnDefinition
+  extends ColumnDefinition
+{
+  override
+  val sql = "UUID"
+}
+
+class PostgresqlTimestampWithoutTimezoneColumnDefinition
+  extends ColumnDefinition
+  with ColumnSupportsLimit
+  with ColumnSupportsDefault
+{
+  override
+  def sql = sqlForColumnType("TIMESTAMP WITHOUT TIME ZONE")
+}
+
+
 class PostgresqlDatabaseAdapter(override val schemaNameOpt: Option[String])
   extends DatabaseAdapter(schemaNameOpt)
 {
@@ -76,13 +101,16 @@ class PostgresqlDatabaseAdapter(override val schemaNameOpt: Option[String])
       case IntegerType =>
         new DefaultIntegerColumnDefinition
       case TimestampType =>
-        new DefaultTimestampColumnDefinition
+        new PostgresqlTimestampWithoutTimezoneColumnDefinition
       case SmallintType =>
         new DefaultSmallintColumnDefinition
       case VarbinaryType =>
         new PostgresqlByteaColumnDefinition
       case VarcharType =>
-        new DefaultVarcharColumnDefinition
+        new PostgresqlVarcharColumnDefinition
+      case UUIDType =>
+        new PostgresqlUUIDColumnDefinition
+
     }
   }
 
