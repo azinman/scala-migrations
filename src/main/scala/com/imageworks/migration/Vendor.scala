@@ -38,10 +38,10 @@ package com.imageworks.migration
  */
 sealed trait Vendor
 
-case object Derby
-  extends Vendor
-case object Oracle
-  extends Vendor
+// case object Derby
+//   extends Vendor
+// case object Oracle
+//   extends Vendor
 case object Postgresql
   extends Vendor
 
@@ -61,17 +61,17 @@ object Vendor
   def forDriver(driver_class_name: String): Vendor =
   {
     driver_class_name match {
-      case "oracle.jdbc.driver.OracleDriver" =>
-        Oracle
+      // case "oracle.jdbc.driver.OracleDriver" =>
+      //   Oracle
 
-      case "oracle.jdbc.OracleDriver" =>
-        Oracle
+      // case "oracle.jdbc.OracleDriver" =>
+      //   Oracle
 
-      case "org.apache.derby.jdbc.EmbeddedDriver" =>
-        Derby
+      // case "org.apache.derby.jdbc.EmbeddedDriver" =>
+      //   Derby
 
-      case "org.apache.derby.jdbc.ClientDriver" =>
-        Derby
+      // case "org.apache.derby.jdbc.ClientDriver" =>
+      //   Derby
 
       case "org.postgresql.Driver" =>
         Postgresql

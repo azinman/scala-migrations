@@ -45,10 +45,10 @@ object JavaDatabaseAdapter
    *
    * @return newly constructed DerbyDatabaseAdapter
    */
-  def getDerbyDatabaseAdapter(): DerbyDatabaseAdapter =
-  {
-    new DerbyDatabaseAdapter(None)
-  }
+  // def getDerbyDatabaseAdapter(): DerbyDatabaseAdapter =
+  // {
+  //   new DerbyDatabaseAdapter(None)
+  // }
 
   /**
    * Create a Derby Database Adapter.
@@ -56,20 +56,20 @@ object JavaDatabaseAdapter
    * @param schema_name the default schema name in the adapter
    * @return newly constructed DerbyDatabaseAdapter
    */
-  def getDerbyDatabaseAdapter(schema_name: String): DerbyDatabaseAdapter =
-  {
-    new DerbyDatabaseAdapter(Some(schema_name))
-  }
+  // def getDerbyDatabaseAdapter(schema_name: String): DerbyDatabaseAdapter =
+  // {
+  //   new DerbyDatabaseAdapter(Some(schema_name))
+  // }
 
   /**
    * Create an Oracle Database Adapter.
    *
    * @return newly constructed OracleDatabaseAdapter
    */
-  def getOracleDatabaseAdapter(): OracleDatabaseAdapter =
-  {
-    new OracleDatabaseAdapter(None)
-  }
+  // def getOracleDatabaseAdapter(): OracleDatabaseAdapter =
+  // {
+  //   new OracleDatabaseAdapter(None)
+  // }
 
   /**
    * Create an Oracle Database Adapter.
@@ -77,10 +77,10 @@ object JavaDatabaseAdapter
    * @param schema_name the default schema name in the adapter
    * @return newly constructed OracleDatabaseAdapter
    */
-  def getOracleDatabaseAdapter(schema_name: String): OracleDatabaseAdapter =
-  {
-    new OracleDatabaseAdapter(Some(schema_name))
-  }
+  // def getOracleDatabaseAdapter(schema_name: String): OracleDatabaseAdapter =
+  // {
+  //   new OracleDatabaseAdapter(Some(schema_name))
+  // }
 
   /**
    * Create a PostgreSQL Database Adapter.
