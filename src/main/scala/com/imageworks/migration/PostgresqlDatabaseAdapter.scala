@@ -63,6 +63,13 @@ class PostgresqlTimestampWithoutTimezoneColumnDefinition
   def sql = sqlForColumnType("TIMESTAMP WITHOUT TIME ZONE")
 }
 
+class PostgresqlHstoreColumnDefinition
+  extends ColumnDefinition
+{
+  override
+  val sql = "HSTORE"
+}
+
 
 class PostgresqlDatabaseAdapter(override val schemaNameOpt: Option[String])
   extends DatabaseAdapter(schemaNameOpt)
@@ -100,6 +107,8 @@ class PostgresqlDatabaseAdapter(override val schemaNameOpt: Option[String])
         new DefaultDecimalColumnDefinition
       case IntegerType =>
         new DefaultIntegerColumnDefinition
+      case HStoreType =>
+        new PostgresqlHstoreColumnDefinition
       case TimestampType =>
         new PostgresqlTimestampWithoutTimezoneColumnDefinition
       case SmallintType =>
